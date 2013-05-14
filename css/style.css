@@ -1,0 +1,6 @@
+#wrapper { width: 100%; padding: 0 10%; -webkit-box-sizing: border-box; }
+#wrapper section { width: 100%; margin: 0 auto; display: inline-block; position: relative; text-align: left }
+h1 { margin-bottom: 0}
+span { font-style: italic; }
+textarea, input, button { display: block; width: 100%; margin: 1em 0 }
+input[type="radio"] { display: inline; width: 20px; margin: 0; padding: 0}
