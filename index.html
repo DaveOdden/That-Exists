@@ -2,24 +2,44 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Does This Exist?</title>
+	<title>That Exists</title>
 	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles/github.css">
 
 	<script src="js/jquery.js" type="text/javascript"></script> 
-	<script src="js/scripts.js" type="text/javascript"></script>           
+	<script src="js/scripts.js" type="text/javascript"></script>
+	<script src="js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>         
 </head>
 <body>
 	<div id="wrapper">
 		<section>
-			<h1>Does it Exist?</h1>
-			This version only shows one declaration set
-			<textarea id="css-box" rows="10" cols="50" onclick="this.focus();this.select()">Paste your CSS file here</textarea>
-			<input type="radio" name="group1" value="one" checked/><span>Selector</span>
-			<input type="radio" name="group1" value="two" disabled/><span>Attribute</span>
-			<input id="search-box" type="text" value="Paste class, id or attribute to search for in stylesheet" onclick="this.focus();this.select()" />
-			<input type="submit" id="search-btn">
-			<div id="result">
-			</div>
+			<header>
+			<h1>That Exists</h1>
+			<span>Scrub through your CSS</span>
+			</header>
+			<br>
+			
+			<form>
+			<textarea id="css-box" rows="10" cols="50">Paste your CSS file here</textarea>
+			<span class="small-n-bold">Criteria:</span>&nbsp;&nbsp;
+			<input type="radio" name="group1" value="one" id="all-radio" checked/><label for="all-radio">All</label>&nbsp;&nbsp;
+			<input type="radio" name="group1" value="two" id="selector-radio" /><label for="selector-radio">Selector</label>&nbsp;&nbsp;
+			<input type="radio" name="group1" value="three" id="attribute-radio" /><label for="attribute-radio">Attribute</label>
+			<input id="search-box" type="text" value="Paste class, id or attribute to search for in stylesheet"/>
+			<input type="button" id="search-btn" value="Search">
+			</form>
+			
+			<br>
+			<br>
+			<br>
+			<section id="results-section">
+			<span></span>
+			<pre>
+			<code id="result">
+			</code>
+			</pre>
+			</section>
 		</section>
 	</div>
 </body>
