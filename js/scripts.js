@@ -10,7 +10,7 @@ $(function() {
 	});
 
 	// executing search on enter
-	$('form').keydown(function(event){    
+	$('#search-box').keydown(function(event){    
 	    if(event.keyCode==13){ $('#search-btn').trigger('click'); return false;}
 	});
 
@@ -22,11 +22,36 @@ $(function() {
 		// ALL
 		if($('#all-radio').is(':checked')) {
 			var tokens = str.split('}');
-
-			$('#result').html('');
+			
+			
+			//t = t.split("\n")
+			//var tok_index = str.indexOf(tokens[3].charAt(0));
+			//alert(tok_index);
+			//var lines = str.slice(0,tok_index).split("\n");
+			//alert(str.slice(0,tok_index - tokens[2].length));
+			
+			//var lines = $("#ptest").val().split("\n");  
+			//alert(lines.length);
+			
+			
+			var ticker = 1;
+			$('#result, #lines').html('');
 			for (var i = 0; i < tokens.length; i++) {
 				if(tokens[i].indexOf(given_value) != -1) {
+					//if (lines[i].Contains(someString)) {
+					//console.log(str.split(/\r?\n|\r/).length);
+					//var lines = str.split(tokens[i]);
+					//console.log(str.indexOf(tokens[i]));
+					var ini_height = $('#result').height();
+					var t = tokens[i];
+					t = str.indexOf(t);
+					var v = str.slice(0,t);
+					var lines = v.split("\n");
+					$('#lines').html($('#lines').html() + '<div>'+(lines.length+1)+'</div>');
 					$('#result').html($('#result').html() + tokens[i] + '} <br>');
+					var nudge = $('#result').height() - ini_height;
+					$('#lines div:nth-child('+ticker+')').css('marginTop',ini_height);
+					ticker++;
 				}
 			}
 		}
